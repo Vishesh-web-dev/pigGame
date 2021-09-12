@@ -4,6 +4,7 @@ const rollDice = document.querySelector(".roll-dice");
 const hold = document.querySelector(".hold");
 const currentScore = document.querySelectorAll(".currentScore"); // both player 1
 const totalScore = document.querySelectorAll(".totalScore"); // both player 1
+
 const box1 = document.querySelector(".player1");
 const box2 = document.querySelector(".player2");
 
@@ -14,26 +15,27 @@ let i = 1;
 
 rollDice.addEventListener("click", function () {
   let dice = Math.trunc(Math.random() * 6) + 1;
+  // dice show
+  diceImg.classList.remove("hidden");
+  diceImg.src = `./${dice}.png`;
+
   if (dice === 1) {
     currSum = 0;
-    currentScore[i - 1].textContent = currSum; // display
-    diceImg.src = `./${dice}.png`;
+    currentScore[i - 1].textContent = currSum; // display current score as 0
+    //switch player
     if (i == 1) {
       box1.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
       box2.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
       i = 2;
-      return;
     } else {
       box1.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
       box2.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
       i = 1;
-      return;
     }
+  } else {
+    currSum = dice + currSum;
+    currentScore[i - 1].textContent = currSum; //display current score
   }
-  currSum = dice + currSum;
-  currentScore[i - 1].textContent = currSum; //display
-  diceImg.src = `./${dice}.png`;
-  diceImg.classList.remove("hidden");
 });
 
 hold.addEventListener("click", function () {
@@ -44,8 +46,8 @@ hold.addEventListener("click", function () {
       newGamefunc();
     }
     currSum = 0;
-    currentScore[i - 1].textContent = currSum; //display
-    totalScore[i - 1].textContent = totalSum1; //display
+    currentScore[i - 1].textContent = currSum; //display current sum as 0 (player 1)
+    totalScore[i - 1].textContent = totalSum1; //display total sum (player 1)
     box1.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
     box2.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
     i = 2;
@@ -56,8 +58,8 @@ hold.addEventListener("click", function () {
       newGamefunc();
     }
     currSum = 0;
-    currentScore[i - 1].textContent = currSum; //display
-    totalScore[i - 1].textContent = totalSum2; //display
+    currentScore[i - 1].textContent = currSum; //display current sum as 0(player 2)
+    totalScore[i - 1].textContent = totalSum2; //display total sum (player 2)
     box1.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
     box2.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
     i = 1;
@@ -69,14 +71,14 @@ function newGamefunc() {
   box2.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
 
   currSum = 0;
-  currentScore[0].textContent = currSum; //display
-  currentScore[1].textContent = currSum; //display
+  currentScore[0].textContent = currSum; //0(player 1 current score)
+  currentScore[1].textContent = currSum; //0(player 2 current score)
 
   totalSum1 = 0;
-  totalScore[0].textContent = totalSum1; //display
+  totalScore[0].textContent = totalSum1; //0(player 1 total score)
 
   totalSum2 = 0;
-  totalScore[1].textContent = totalSum2; //display
+  totalScore[1].textContent = totalSum2; //0(player 2 total score)
 
   diceImg.classList.add("hidden");
 }
