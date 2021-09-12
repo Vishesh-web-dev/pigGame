@@ -33,7 +33,7 @@ rollDice.addEventListener("click", function () {
   currSum = dice + currSum;
   currentScore[i - 1].textContent = currSum; //display
   diceImg.src = `./${dice}.png`;
-  diceImg.classList.remove("Imagecss");
+  diceImg.classList.remove("hidden");
 });
 
 hold.addEventListener("click", function () {
@@ -78,52 +78,25 @@ function newGamefunc() {
   totalSum2 = 0;
   totalScore[1].textContent = totalSum2; //display
 
-  diceImg.classList.add("Imagecss");
+  diceImg.classList.add("hidden");
 }
 newGame.addEventListener("click", newGamefunc);
 
-
-
 // animation
-// console.log(window.screen.availWidth);
-rollDice.addEventListener("click",function(){
+
+const btns = document.querySelectorAll(".btn");
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function () {
     if (window.screen.availWidth >= 800) {
-        rollDice.style.transform = "translate(50%,4px)";
-    setTimeout(() => {
-        rollDice.style.transform = "translate(50%,0px)";
-    }, 50);
-    }else{
-        rollDice.style.transform = "translate(0%,-12px)";
-    setTimeout(() => {
-        rollDice.style.transform = "translate(0%,-16px)";
-    }, 50);
+      btns[i].style.transform = "translate(50%,4px)";
+      setTimeout(() => {
+        btns[i].style.transform = "translate(50%,0px)";
+      }, 50);
+    } else {
+      btns[i].style.transform = "translate(0%,-12px)";
+      setTimeout(() => {
+        btns[i].style.transform = "translate(0%,-16px)";
+      }, 50);
     }
-    
-})
-hold.addEventListener("click",function(){
-    if (window.screen.availWidth >= 800) {
-        hold.style.transform = "translate(50%,4px)";
-    setTimeout(() => {
-        hold.style.transform = "translate(50%,0px)";
-    }, 50);
-    }else{
-        hold.style.transform = "translate(0%,-12px)";
-    setTimeout(() => {
-        hold.style.transform = "translate(0%,-16px)";
-    }, 50);
-    }
-    
-})
-newGame.addEventListener("click",function(){
-    if (window.screen.availWidth >= 800) {
-        newGame.style.transform = "translate(50%,4px)";
-    setTimeout(() => {
-        newGame.style.transform = "translate(50%,0px)";
-    }, 50);
-    }else{
-        newGame.style.transform = "translate(0%,-12px)";
-    setTimeout(() => {
-        newGame.style.transform = "translate(0%,-16px)";
-    }, 50);
-    }
-})
+  });
+}

@@ -112,7 +112,7 @@ body {
 .hold {
   top: 76%;
 }
-.Imagecss{
+.hidden{
     display: none;
 }
 @media (max-width: 800px) {
