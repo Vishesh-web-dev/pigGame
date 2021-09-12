@@ -33,6 +33,7 @@ rollDice.addEventListener("click", function () {
   currSum = dice + currSum;
   currentScore[i - 1].textContent = currSum; //display
   diceImg.src = `./${dice}.png`;
+  diceImg.classList.remove("Imagecss");
 });
 
 hold.addEventListener("click", function () {
@@ -76,13 +77,15 @@ function newGamefunc() {
 
   totalSum2 = 0;
   totalScore[1].textContent = totalSum2; //display
+
+  diceImg.classList.add("Imagecss");
 }
 newGame.addEventListener("click", newGamefunc);
 
 
 
 // animation
-console.log(window.screen.availWidth);
+// console.log(window.screen.availWidth);
 rollDice.addEventListener("click",function(){
     if (window.screen.availWidth >= 800) {
         rollDice.style.transform = "translate(50%,4px)";

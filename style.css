@@ -112,22 +112,9 @@ body {
 .hold {
   top: 76%;
 }
-
-/* .win{
-    width: 100%;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.7);
-    animation: widthlength 1s;
-} */
-@keyframes widthlength{
-    0%{
-        width: 50%;
-    }
-    100%{
-        width: 100%;
-    }
+.Imagecss{
+    display: none;
 }
-
 @media (max-width: 800px) {
   body {
     min-height: 100vh;
