@@ -13,6 +13,7 @@ let totalSum1 = 0;
 let totalSum2 = 0;
 let i = 1;
 
+//roll dice
 rollDice.addEventListener("click", function () {
   let dice = Math.trunc(Math.random() * 6) + 1;
   // dice show
@@ -38,9 +39,11 @@ rollDice.addEventListener("click", function () {
   }
 });
 
+//hold
 hold.addEventListener("click", function () {
   if (i == 1) {
     totalSum1 = totalSum1 + currSum;
+    //if player 1 wins
     if (totalSum1 >= 100) {
       console.log("player one wins");
       newGamefunc();
@@ -52,6 +55,7 @@ hold.addEventListener("click", function () {
     box2.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
     i = 2;
   } else {
+      //if player 2 wins
     totalSum2 = totalSum2 + currSum;
     if (totalSum2 >= 100) {
       console.log("player two wins");
@@ -65,6 +69,8 @@ hold.addEventListener("click", function () {
     i = 1;
   }
 });
+
+//new game
 function newGamefunc() {
   i = 1;
   box1.style.backgroundColor = "rgba(255, 255, 255, 0.6)";
@@ -85,7 +91,6 @@ function newGamefunc() {
 newGame.addEventListener("click", newGamefunc);
 
 // animation
-
 const btns = document.querySelectorAll(".btn");
 for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function () {
