@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>winner</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        background: linear-gradient(
+          to bottom right,
+          rgb(209, 5, 5),
+          rgb(141, 1, 141)
+        );
+      }
+      .main {
+        padding: 5rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        border-radius: 10px;
+        margin: 2rem;
+      }
+      h1 {
+        color: green;
+        text-transform: uppercase;
+        font-size: 44px;
+      }
+      .playAgain {
+        margin: 2rem auto 0rem auto;
+        width: max-content;
+        font-size: 20px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 0.4rem 0.5rem;
+        border-radius: 30px;
+        color: rgba(0, 0, 0, 0.9);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <h1>player 1 wins</h1>
+      <div class="playAgain">🔁 Play Again</div>
+    </div>
+    <script>
+        const playAgain = document.querySelector(".playAgain");
+        playAgain.addEventListener("click",function(){
+            window.open('index.html','_self');
+        })
+    </script>
+  </body>
+</html>

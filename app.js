@@ -45,8 +45,7 @@ hold.addEventListener("click", function () {
     totalSum1 = totalSum1 + currSum;
     //if player 1 wins
     if (totalSum1 >= 100) {
-      console.log("player one wins");
-      newGamefunc();
+        window.open('win1.html','_self');      
     }
     currSum = 0;
     currentScore[i - 1].textContent = currSum; //display current sum as 0 (player 1)
@@ -58,8 +57,7 @@ hold.addEventListener("click", function () {
       //if player 2 wins
     totalSum2 = totalSum2 + currSum;
     if (totalSum2 >= 100) {
-      console.log("player two wins");
-      newGamefunc();
+        window.open('win2.html','_self');
     }
     currSum = 0;
     currentScore[i - 1].textContent = currSum; //display current sum as 0(player 2)
